@@ -6,27 +6,21 @@
 package nutritionalprogram.View;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JSpinner;
-import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
-import nutritionalprogram.Controller.RegisterController;
 
 /**
  *
  * @author Luana Franciele
  */
-public class RegisterPatientPanel extends javax.swing.JPanel {
+public class AddInfoPanel extends javax.swing.JPanel {
 
-    
-    private RegisterController controller;
     /**
-     * Creates new form registerPatientPanel
+     * Creates new form AddInfoPanel
      */
-    public RegisterPatientPanel() {
+    public AddInfoPanel() {
         initComponents();
-        controller = new RegisterController(this);
-        
     }
 
     /**
@@ -39,15 +33,7 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         patientBaseInfos = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        nameTextField = new javax.swing.JTextField();
-        sexComboBox = new javax.swing.JComboBox<>();
-        ageSpinner = new javax.swing.JSpinner();
-        hightSpinner = new javax.swing.JSpinner();
+        nameLabel = new javax.swing.JLabel();
         patientWeightInfos = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -78,31 +64,14 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
         leftLegSpinner = new javax.swing.JSpinner();
         rightCalfSpinner = new javax.swing.JSpinner();
         leftCalfSpinner = new javax.swing.JSpinner();
-        savePatientInfo = new javax.swing.JButton();
+        saveBtn = new javax.swing.JButton();
+        cancelBtn = new javax.swing.JButton();
 
         patientBaseInfos.setBackground(new java.awt.Color(102, 255, 102));
         patientBaseInfos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel1.setText("Perfil do paciente");
-
-        jLabel2.setText("Nome:");
-
-        jLabel3.setText("Idade:");
-
-        jLabel4.setText("Sexo:");
-
-        jLabel5.setText("Altura:");
-
-        sexComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
-
-        ageSpinner.setToolTipText("");
-
-        double current = 0.0;
-        double min = -100.0;
-        double max = 100.0;
-        double step = 0.01;
-        hightSpinner.setModel(new SpinnerNumberModel(current, min, max, step));
+        nameLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        nameLabel.setText("Nome");
 
         javax.swing.GroupLayout patientBaseInfosLayout = new javax.swing.GroupLayout(patientBaseInfos);
         patientBaseInfos.setLayout(patientBaseInfosLayout);
@@ -110,44 +79,15 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
             patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientBaseInfosLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(patientBaseInfosLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameTextField))
-                    .addGroup(patientBaseInfosLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ageSpinner))
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(sexComboBox, 0, 142, Short.MAX_VALUE)
-                    .addComponent(hightSpinner))
-                .addGap(81, 81, 81))
+                .addComponent(nameLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         patientBaseInfosLayout.setVerticalGroup(
             patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientBaseInfosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(nameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sexComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(ageSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addComponent(nameLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         patientWeightInfos.setBackground(new java.awt.Color(102, 255, 102));
@@ -159,6 +99,11 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
         jLabel8.setText("Meta:");
 
         jLabel10.setText("Taxa de gordura corporal:");
+
+        double current = 0.0;
+        double min = -100.0;
+        double max = 100.0;
+        double step = 0.01;
 
         currentWeightSpinner.setModel(new SpinnerNumberModel(current, min, max, step));
 
@@ -186,10 +131,10 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(bodyfatSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel6))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 129, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(goalWeightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         patientWeightInfosLayout.setVerticalGroup(
             patientWeightInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +229,7 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(waistSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
                 .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
                         .addComponent(jLabel19)
@@ -343,15 +288,12 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
                     .addComponent(jLabel16)
                     .addComponent(waistSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(leftCalfSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        savePatientInfo.setText("Cadastrar paciente");
-        savePatientInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                savePatientInfoActionPerformed(evt);
-            }
-        });
+        saveBtn.setText("Salvar");
+
+        cancelBtn.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -360,41 +302,41 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(patientWeightInfos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(patientBaseInfos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(patientMeasuresInfos, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
+                    .addComponent(patientBaseInfos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(patientWeightInfos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(patientMeasuresInfos, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(savePatientInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(patientBaseInfos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(patientWeightInfos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(patientMeasuresInfos, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(savePatientInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(patientMeasuresInfos, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void savePatientInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePatientInfoActionPerformed
-        //SEM CÓDIGO
-    }//GEN-LAST:event_savePatientInfoActionPerformed
+    public JButton getCancelBtn() {
+        return cancelBtn;
+    }
 
-    public JButton getSaveInfoPatientButton(){
-        return savePatientInfo;
+    public JButton getSaveBtn() {
+        return saveBtn;
     }
     
-    public JSpinner getAgeSpinner() {
-        return ageSpinner;
-    }
-
     public JSpinner getBodyfatSpinner() {
         return bodyfatSpinner;
     }
@@ -409,10 +351,6 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
 
     public JSpinner getGoalWeightSpinner() {
         return goalWeightSpinner;
-    }
-
-    public JSpinner getHightSpinner() {
-        return hightSpinner;
     }
 
     public JSpinner getHipSpinner() {
@@ -431,8 +369,8 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
         return leftLegSpinner;
     }
 
-    public JTextField getNameTextField() {
-        return nameTextField;
+    public JLabel getNameLabel() {
+        return nameLabel;
     }
 
     public JSpinner getRightArmSpinner() {
@@ -447,10 +385,6 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
         return rightLegSpinner;
     }
 
-    public JComboBox<String> getSexComboBox() {
-        return sexComboBox;
-    }
-
     public JSpinner getShouldersSpinner() {
         return shouldersSpinner;
     }
@@ -458,20 +392,16 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
     public JSpinner getWaistSpinner() {
         return waistSpinner;
     }
-
-   
-
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner ageSpinner;
     private javax.swing.JSpinner bodyfatSpinner;
+    private javax.swing.JButton cancelBtn;
     private javax.swing.JSpinner chestSpinner;
     private javax.swing.JSpinner currentWeightSpinner;
     private javax.swing.JSpinner goalWeightSpinner;
-    private javax.swing.JSpinner hightSpinner;
     private javax.swing.JSpinner hipSpinner;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -481,12 +411,8 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -494,15 +420,14 @@ public class RegisterPatientPanel extends javax.swing.JPanel {
     private javax.swing.JSpinner leftArmSpinner;
     private javax.swing.JSpinner leftCalfSpinner;
     private javax.swing.JSpinner leftLegSpinner;
-    private javax.swing.JTextField nameTextField;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JPanel patientBaseInfos;
     private javax.swing.JPanel patientMeasuresInfos;
     private javax.swing.JPanel patientWeightInfos;
     private javax.swing.JSpinner rightArmSpinner;
     private javax.swing.JSpinner rightCalfSpinner;
     private javax.swing.JSpinner rightLegSpinner;
-    private javax.swing.JButton savePatientInfo;
-    private javax.swing.JComboBox<String> sexComboBox;
+    private javax.swing.JButton saveBtn;
     private javax.swing.JSpinner shouldersSpinner;
     private javax.swing.JSpinner waistSpinner;
     // End of variables declaration//GEN-END:variables

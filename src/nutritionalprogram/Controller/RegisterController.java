@@ -9,7 +9,7 @@ import java.util.Calendar;
 import javax.swing.JOptionPane;
 import nutritionalprogram.Model.entity.BasicPatientInfoModel;
 import nutritionalprogram.Model.entity.BodyPatientModel;
-import nutritionalprogram.Model.service.RegisterPatientService;
+import nutritionalprogram.Model.service.PatientService;
 import nutritionalprogram.View.RegisterPatientPanel;
 
 /**
@@ -19,11 +19,11 @@ import nutritionalprogram.View.RegisterPatientPanel;
 public class RegisterController {
     
     private RegisterPatientPanel patientPanel;
-    private RegisterPatientService service;
+    private PatientService service;
     
     public RegisterController(RegisterPatientPanel patientPanel){
         this.patientPanel = patientPanel;
-        service = new RegisterPatientService();
+        service = new PatientService();
     }
     
     public void getAllInformation(){

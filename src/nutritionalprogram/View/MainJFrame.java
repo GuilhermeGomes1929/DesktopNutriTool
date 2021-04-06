@@ -24,6 +24,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         initComponents();
         controller = new MainController(this);
+        System.out.print(menuPanel.getWidth() +"width," + menuPanel.getHeight()+"height");
         
         
     }
@@ -32,6 +33,12 @@ public class MainJFrame extends javax.swing.JFrame {
     public JScrollPane getContentPanel(){
         return scrollPanel;
     }
+    
+    public JScrollPane getListScrollPanel(){
+        return scrollListPatient;
+    }
+    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,13 +57,11 @@ public class MainJFrame extends javax.swing.JFrame {
         searchTextField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         addPatientButton = new javax.swing.JButton();
-        jusTest = new javax.swing.JButton();
-        justTest2 = new javax.swing.JButton();
+        scrollListPatient = new javax.swing.JScrollPane();
         contentPanel = new javax.swing.JPanel();
         scrollPanel = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 700));
 
         menuPanel.setBackground(new java.awt.Color(153, 255, 153));
 
@@ -119,24 +124,14 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        jusTest.setText("jButton2");
-        jusTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jusTestActionPerformed(evt);
-            }
-        });
-
-        justTest2.setText("jButton3");
-
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(nutriInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(addPatientButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jusTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(justTest2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(addPatientButton, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
+            .addComponent(scrollListPatient)
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,10 +142,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jusTest, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(justTest2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 337, Short.MAX_VALUE))
+                .addComponent(scrollListPatient, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
@@ -158,8 +150,8 @@ public class MainJFrame extends javax.swing.JFrame {
         contentPanelLayout.setHorizontalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentPanelLayout.createSequentialGroup()
-                .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(scrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,10 +193,6 @@ public class MainJFrame extends javax.swing.JFrame {
         controller.addRegisterPatientView();
     }//GEN-LAST:event_addPatientButtonActionPerformed
 
-    private void jusTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jusTestActionPerformed
-        controller.addPatientView();
-    }//GEN-LAST:event_jusTestActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -244,12 +232,11 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPatientButton;
     private javax.swing.JPanel contentPanel;
-    private javax.swing.JButton jusTest;
-    private javax.swing.JButton justTest2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JPanel nutriInfoPanel;
     private javax.swing.JLabel nutriName;
+    private javax.swing.JScrollPane scrollListPatient;
     private javax.swing.JScrollPane scrollPanel;
     private javax.swing.JButton searchButton;
     private javax.swing.JPanel searchPanel;

@@ -3,9 +3,6 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[950, 700]"/>
-    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -68,9 +65,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="nutriInfoPanel" max="32767" attributes="0"/>
                   <Component id="searchPanel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="addPatientButton" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jusTest" alignment="0" max="32767" attributes="0"/>
-                  <Component id="justTest2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="addPatientButton" alignment="0" pref="222" max="32767" attributes="0"/>
+                  <Component id="scrollListPatient" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -82,10 +78,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="searchPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jusTest" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="justTest2" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="337" max="32767" attributes="0"/>
+                      <Component id="scrollListPatient" pref="439" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -187,19 +180,10 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addPatientButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jusTest">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jButton2"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jusTestActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="justTest2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jButton3"/>
-              </Properties>
-            </Component>
+            <Container class="javax.swing.JScrollPane" name="scrollListPatient">
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="contentPanel">
@@ -208,8 +192,8 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="scrollPanel" pref="750" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                      <Component id="scrollPanel" min="-2" pref="750" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

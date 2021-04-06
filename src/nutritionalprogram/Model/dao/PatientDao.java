@@ -8,6 +8,7 @@ package nutritionalprogram.Model.dao;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 import nutritionalprogram.Model.entity.BasicPatientInfoModel;
 import nutritionalprogram.Model.entity.BodyPatientModel;
 
@@ -28,7 +29,7 @@ public class PatientDao {
         
         String basicInfos = "CREATE TABLE IF NOT EXISTS "
                 + "basicInfos(id INTEGER PRIMARY KEY autoincrement,"
-                + " name TEXT, age INTEGER, hight INTEGER, sex TEXT );";
+                + " name TEXT, age INTEGER, hight REAL, sex TEXT );";
         String bodyInfos = "CREATE TABLE IF NOT EXISTS "
                 + "bodyInfos(id INTEGER PRIMARY KEY autoincrement,"
                 + "currentWeight REAL, goalWeight REAL, bodyfat REAL,"
@@ -160,4 +161,118 @@ public class PatientDao {
         
     }
     
+    public boolean deleteInfosWithId(String dbName, int id){
+        try{
+            String query = "DELETE FROM bodyInfos WHERE id = ?";
+            connectDatabase.connect("\\pacientes\\"+dbName);
+            PreparedStatement stmt = connectDatabase.getPreparedStatement(query);
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+            
+            stmt.close();
+            connectDatabase.disconnect();
+            
+            return true;
+            
+        }catch(SQLException e){
+            System.out.println(e.toString()+ " function deleteInfosWithId");
+            return false;
+        }
+    }
+    
+    public Integer getLastIdFrom(String dbName, String tableName){
+        try{
+            int lastId = 0;
+            String query = "SELECT id FROM "+tableName;
+            connectDatabase.connect("\\pacientes\\"+dbName);
+            
+            Statement stmt = connectDatabase.getStatement();
+            ResultSet result = stmt.executeQuery(query);
+            
+            while(result.next()){
+                lastId = result.getInt("id");
+                
+            }
+            stmt.close();
+            connectDatabase.disconnect();
+            return lastId;
+        }catch(SQLException e){
+           
+            return null;
+        }
+    }
+    
+    public BasicPatientInfoModel getBasicInfo(String dbName){
+        BasicPatientInfoModel basicInfoModel = new BasicPatientInfoModel();
+        
+        try{
+            String query = "SELECT * FROM basicInfos";
+            connectDatabase.connect("\\pacientes\\"+dbName);
+            Statement stmt = connectDatabase.getStatement();
+           
+            
+            ResultSet result = stmt.executeQuery(query);
+            if(result.next()){
+                basicInfoModel.setName(result.getString("name"));
+                basicInfoModel.setAge(result.getInt("age"));
+                basicInfoModel.setHight(result.getFloat("hight"));
+                basicInfoModel.setSex(result.getString("sex"));
+                stmt.close();
+                connectDatabase.disconnect();
+                return basicInfoModel;
+            }else{
+                stmt.close();
+                connectDatabase.disconnect();
+                return null;
+            }
+
+            
+        }catch(SQLException e){
+            return null;
+        }
+    }
+    
+    public BodyPatientModel getBodyInfoById(String dbName, int id){
+        
+        try{
+            BodyPatientModel bodyModel = new BodyPatientModel();
+            String query = "SELECT * FROM bodyInfos WHERE id = ?";
+            connectDatabase.connect("\\pacientes\\"+dbName);
+            PreparedStatement stmt = connectDatabase.getPreparedStatement(query);
+            stmt.setInt(1, id);
+            
+            ResultSet result = stmt.executeQuery();
+            if(result.next()){
+                bodyModel.setCurrentWeight(result.getFloat("currentWeight"));
+                bodyModel.setGoalWeight(result.getFloat("goalWeight"));
+                bodyModel.setBodyfat(result.getFloat("bodyfat"));
+                bodyModel.setShoulders(result.getInt("shoulders"));
+                bodyModel.setChest(result.getInt("chest"));
+                bodyModel.setLeftArm(result.getInt("leftArm"));
+                bodyModel.setRightArm(result.getInt("rightArm"));
+                bodyModel.setWaist(result.getInt("waist"));
+                bodyModel.setHip(result.getInt("hip"));
+                bodyModel.setLeftLeg(result.getInt("leftLeg"));
+                bodyModel.setRightLeg(result.getInt("rightLeg"));
+                bodyModel.setLeftCalf(result.getInt("leftCalf"));
+                bodyModel.setRightCalf(result.getInt("rightCalf"));
+                bodyModel.setDate(result.getLong("date"));
+                
+                stmt.close();
+                connectDatabase.disconnect();
+                
+                return bodyModel;
+            }else{
+                stmt.close();
+                connectDatabase.disconnect();
+                return null;
+            }
+            
+            
+        }catch(SQLException e){
+            return null;
+        }
+    }
+    
+   
 }

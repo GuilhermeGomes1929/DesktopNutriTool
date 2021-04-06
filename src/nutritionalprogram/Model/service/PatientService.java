@@ -13,20 +13,36 @@ import nutritionalprogram.Model.entity.BodyPatientModel;
  *
  * @author Luana Franciele
  */
-public class RegisterPatientService {
+public class PatientService {
     
     public PatientDao patientDao;
     
-    public RegisterPatientService(){
+    public PatientService(){
         patientDao = new PatientDao();
     }
     
     public String registerPatient(String patientName, BasicPatientInfoModel basicInfo, BodyPatientModel bodymodel){
-        patientDao.createTable(patientName);
-        if(patientDao.insertBasicInfos(patientName, basicInfo) && patientDao.insertBodyInfos(patientName, bodymodel)){
+        patientDao.createTable("\\pacientes\\"+patientName);
+        if(patientDao.insertBasicInfos("\\pacientes\\"+patientName, basicInfo) && patientDao.insertBodyInfos("\\pacientes\\"+patientName, bodymodel)){
             return "Paciente registrado com sucesso!";
         }else{
             return "Houve um erro ao registrar o paciente...";
         }
+    }
+    
+    public BasicPatientInfoModel getBasicInfos(String dbName){
+        return patientDao.getBasicInfo(dbName);
+    }
+    
+    public Integer getCursor(String dbName){
+        return patientDao.getLastIdFrom(dbName, "bodyInfos");
+    }
+    
+    public BodyPatientModel getBodyModel(String dbName, int id){
+        return patientDao.getBodyInfoById(dbName, id);
+    }
+    
+    public boolean deleteInfo(String dbname, int id){
+        return patientDao.deleteInfosWithId(dbname, id);
     }
 }

@@ -23,7 +23,7 @@ public class ConnectDatabase {
     
     public boolean connect(String fileName){
         
-        String url = "jdbc:sqlite:" + System.getProperty("user.dir")+"\\pacientes\\"+fileName+".db";
+        String url = "jdbc:sqlite:" + System.getProperty("user.dir")+fileName+".db";
         
         try{
             
