@@ -7,6 +7,8 @@ package nutritionalprogram.View;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import nutritionalprogram.Controller.PatientInfoController;
 
 /**
  *
@@ -18,8 +20,17 @@ public class PatientPanel extends javax.swing.JPanel {
      * Creates new form PatientPanel
      */
     
-    public PatientPanel() {
+    private String name;
+    private PatientInfoController controller;
+    private JScrollPane scrollPanel;
+    
+    public PatientPanel(String name,JScrollPane scrollPanel ) {
+        this.name = name;
+        this.scrollPanel = scrollPanel;
         initComponents();
+        
+        controller = new PatientInfoController(this);
+        
         
     }
 
@@ -322,6 +333,14 @@ public class PatientPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public String getPatientName(){
+        return name;
+    }
+    
+    public JScrollPane getScrollPanel(){
+        return scrollPanel;
+    }
+    
     public JButton getAddInfoBtn() {
         return addInfoBtn;
     }

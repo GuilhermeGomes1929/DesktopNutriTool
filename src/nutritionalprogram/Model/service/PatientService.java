@@ -5,6 +5,7 @@
  */
 package nutritionalprogram.Model.service;
 
+import java.util.ArrayList;
 import nutritionalprogram.Model.dao.PatientDao;
 import nutritionalprogram.Model.entity.BasicPatientInfoModel;
 import nutritionalprogram.Model.entity.BodyPatientModel;
@@ -30,11 +31,19 @@ public class PatientService {
         }
     }
     
+    public String insertPatientInfos(String dbName, BodyPatientModel bodyModel){
+        if(patientDao.insertBodyInfos("\\pacientes\\"+dbName, bodyModel)){
+            return "Informações inseridas com sucesso!";
+        }else{
+            return "Houve um erro ao inserir as informações...";
+        }
+    }
+    
     public BasicPatientInfoModel getBasicInfos(String dbName){
         return patientDao.getBasicInfo(dbName);
     }
     
-    public Integer getCursor(String dbName){
+    public ArrayList<Integer> getCursor(String dbName){
         return patientDao.getLastIdFrom(dbName, "bodyInfos");
     }
     

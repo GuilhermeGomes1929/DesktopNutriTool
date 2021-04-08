@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import nutritionalprogram.Model.entity.BasicPatientInfoModel;
 import nutritionalprogram.Model.entity.BodyPatientModel;
 
@@ -180,9 +181,9 @@ public class PatientDao {
         }
     }
     
-    public Integer getLastIdFrom(String dbName, String tableName){
+    public ArrayList<Integer> getLastIdFrom(String dbName, String tableName){
         try{
-            int lastId = 0;
+            ArrayList<Integer> list = new ArrayList<Integer>();
             String query = "SELECT id FROM "+tableName;
             connectDatabase.connect("\\pacientes\\"+dbName);
             
@@ -190,12 +191,12 @@ public class PatientDao {
             ResultSet result = stmt.executeQuery(query);
             
             while(result.next()){
-                lastId = result.getInt("id");
+                list.add(result.getInt("id"));
                 
             }
             stmt.close();
             connectDatabase.disconnect();
-            return lastId;
+            return list;
         }catch(SQLException e){
            
             return null;

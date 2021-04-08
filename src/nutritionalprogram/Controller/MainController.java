@@ -46,8 +46,7 @@ public class MainController{
     private PatientsEditor patientsEditor;
     private PatientService service;
     private AddInfoPanel addInfoPanel;
-    private int numberOfInfos;
-    private int cursor;
+    
    
     private static int MENU_PANEL_WIDTH = 194;
     
@@ -57,7 +56,6 @@ public class MainController{
         registerPatientPanel = new RegisterPatientPanel();
         scrollPanel = view.getContentPanel();
         patientsEditor = new PatientsEditor();
-        addInfoPanel = new AddInfoPanel();
         
         service = new PatientService();
         
@@ -103,14 +101,11 @@ public class MainController{
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        patientPanel = new PatientPanel();
-                        configBasicInfo(button.getText());
+                        patientPanel = new PatientPanel(button.getText(), scrollPanel);
+                        
                         scrollPanel.setViewportView(patientPanel);
-                        numberOfInfos = service.getCursor(button.getText());
-                        cursor = numberOfInfos;
-                        configBodyInfo(button.getText());
-                        configInfoBtn();
-                        configAddAndDelBtn();
+                        
+                       
                     }
                 });                
                
@@ -153,123 +148,35 @@ public class MainController{
         JOptionPane.showMessageDialog(null, status);
     }
      
-     
-    public void configBasicInfo(String patientName){
-        BasicPatientInfoModel basicInfo = service.getBasicInfos(patientName);
-        patientPanel.getNameLabel().setText(basicInfo.getName());
-        patientPanel.getAgeLabel().setText("Idade: "+basicInfo.getAge().toString());
-        patientPanel.getHightLabel().setText("Altura: "+basicInfo.getHight().toString());
-        patientPanel.getSexLabel().setText("Sexo: "+basicInfo.getSex());
-        
-    }
+   
     
-    public void configBodyInfo(String patientName){
-        
-        
-        if(cursor >= numberOfInfos){
-            patientPanel.getNextDateBtn().setEnabled(false);
-        }else{
-            patientPanel.getNextDateBtn().setEnabled(true);
-        }
-        
-        if(cursor <= 1){
-            patientPanel.getBackDateBtn().setEnabled(false);
-        }else{
-            patientPanel.getBackDateBtn().setEnabled(true);
-        }
-        
-        try{
-            BasicPatientInfoModel basicInfo = service.getBasicInfos(patientName);
-            BodyPatientModel bodyModel = service.getBodyModel(patientName, cursor);
-            patientPanel.getCurrentWeightLabel().setText("Atual:" +bodyModel.getCurrentWeight().toString());
-            patientPanel.getGoalWeightLabel().setText("Meta: "+bodyModel.getGoalWeight().toString());
-            patientPanel.getDifferenceWeightLabel()
-                    .setText("Diferença: "+(bodyModel.getGoalWeight() - bodyModel.getCurrentWeight()));
-            patientPanel.getBodyfatLabel().setText("Gordura corporal: "+bodyModel.getBodyfat().toString());
-            patientPanel.getImcLabel()
-                    .setText("IMC: "+bodyModel.getCurrentWeight() / basicInfo.getHight() * basicInfo.getHight() );
-            patientPanel.getShouldersLabel().setText("Ombros: "+bodyModel.getShoulders().toString());
-            patientPanel.getChestLabel().setText("Peitoral: "+bodyModel.getChest().toString());
-            patientPanel.getRightArmLabel().setText("Braço D.: "+bodyModel.getRightArm().toString());
-            patientPanel.getLeftArmLabel().setText("Braço E.: "+bodyModel.getLeftArm().toString());
-            patientPanel.getWaistLabel().setText("Cintura: "+bodyModel.getWaist().toString());
-            patientPanel.getHipLabel().setText("Quadril: "+bodyModel.getHip().toString());
-            patientPanel.getRightLegLabel().setText("Perna D.: "+bodyModel.getRightLeg().toString());
-            patientPanel.getLeftLegLabel().setText("Perna E.: "+bodyModel.getLeftLeg().toString());
-            patientPanel.getRightCalfLabel().setText("Panturrilha D.: "+bodyModel.getRightCalf().toString());
-            patientPanel.getLeftCalfLabel().setText("Panturrilha E.: "+bodyModel.getLeftCalf().toString());
-            patientPanel.getDateLabel().setText(new SimpleDateFormat("dd/MM/yyyy").format(bodyModel.getDate()));
-        }catch(Exception e){
-            patientPanel.getCurrentWeightLabel().setText("Atual:");
-            patientPanel.getGoalWeightLabel().setText("Meta: ");
-            patientPanel.getDifferenceWeightLabel()
-                    .setText("Diferença: ");
-            patientPanel.getBodyfatLabel().setText("Gordura corporal: ");
-            patientPanel.getImcLabel()
-                    .setText("IMC: ");
-            patientPanel.getShouldersLabel().setText("Ombros: ");
-            patientPanel.getChestLabel().setText("Peitoral: ");
-            patientPanel.getRightArmLabel().setText("Braço D.: ");
-            patientPanel.getLeftArmLabel().setText("Braço E.: ");
-            patientPanel.getWaistLabel().setText("Cintura: ");
-            patientPanel.getHipLabel().setText("Quadril: ");
-            patientPanel.getRightLegLabel().setText("Perna D.: ");
-            patientPanel.getLeftLegLabel().setText("Perna E.: ");
-            patientPanel.getRightCalfLabel().setText("Panturrilha D.: ");
-            patientPanel.getLeftCalfLabel().setText("Panturrilha E.: ");
-            patientPanel.getDateLabel().setText("__/__/____");
-            JOptionPane.showMessageDialog(null, "Nenhuma informação foi encontrada!");
-        }
-        
-        
-    }
+   
     
-    public void configInfoBtn(){
-        patientPanel.getNextDateBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                nextDate();
-            }
-        });
-        patientPanel.getBackDateBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                backDate();
-            }
-        });
-    }
     
-    public void nextDate(){
-        cursor ++;
-        configBodyInfo(patientPanel.getNameLabel().getText());
-    }
-    
-    public void backDate(){
-        cursor --;
-        configBodyInfo(patientPanel.getNameLabel().getText());
-    }
-    
-    public void configAddAndDelBtn(){
-        patientPanel.getAddInfoBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 scrollPanel.setViewportView(addInfoPanel);
-            }
-        });
+    public void getNewInformations(){
+        BodyPatientModel bodyModel = new BodyPatientModel();
+        Calendar calendar = Calendar.getInstance();
+        long timeInMillis = calendar.getTimeInMillis();
         
-        patientPanel.getDeleteInfoBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(service.deleteInfo(patientPanel.getNameLabel().getText(), cursor)){
-                    System.out.println("Funciona");
-                }else{
-                     System.out.println("Não funfa");
-                }
-                configBodyInfo(patientPanel.getNameLabel().getText());
-            }
-        });
+        bodyModel.setCurrentWeight(Float.parseFloat(addInfoPanel.getCurrentWeightSpinner().getValue().toString()));
+        bodyModel.setGoalWeight(Float.parseFloat(addInfoPanel.getGoalWeightSpinner().getValue().toString()));
+        bodyModel.setBodyfat(Float.parseFloat(addInfoPanel.getBodyfatSpinner().getValue().toString()));
+        bodyModel.setShoulders(Integer.parseInt(addInfoPanel.getShouldersSpinner().getValue().toString()));
+        bodyModel.setChest(Integer.parseInt(addInfoPanel.getChestSpinner().getValue().toString()));
+        bodyModel.setRightArm(Integer.parseInt(addInfoPanel.getRightArmSpinner().getValue().toString()));
+        bodyModel.setLeftArm(Integer.parseInt(addInfoPanel.getLeftArmSpinner().getValue().toString()));
+        bodyModel.setWaist(Integer.parseInt(addInfoPanel.getWaistSpinner().getValue().toString()));
+        bodyModel.setHip(Integer.parseInt(addInfoPanel.getHipSpinner().getValue().toString()));
+        bodyModel.setRightLeg(Integer.parseInt(addInfoPanel.getRightLegSpinner().getValue().toString()));
+        bodyModel.setLeftLeg(Integer.parseInt(addInfoPanel.getLeftLegSpinner().getValue().toString()));
+        bodyModel.setRightCalf(Integer.parseInt(addInfoPanel.getRightCalfSpinner().getValue().toString()));
+        bodyModel.setLeftCalf(Integer.parseInt(addInfoPanel.getLeftCalfSpinner().getValue().toString()));
+        bodyModel.setDate(timeInMillis);
+        
+        String status = service.insertPatientInfos(patientPanel.getNameLabel().getText(), bodyModel);
+        
+        JOptionPane.showMessageDialog(null, status);
     }
-    
     
     
 }
