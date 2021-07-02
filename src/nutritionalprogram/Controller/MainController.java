@@ -8,6 +8,7 @@ package nutritionalprogram.Controller;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +17,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.Action;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
@@ -60,6 +63,8 @@ public class MainController{
         service = new PatientService();
         
         updateMenuPatientList();
+        MyScrollBar sc = new MyScrollBar(JScrollBar.VERTICAL);
+        view.getListScrollPanel().setVerticalScrollBar(sc);
     }
     
     
@@ -81,6 +86,8 @@ public class MainController{
     public void updateMenuPatientList(){
         ArrayList<String> list = patientsEditor.listOfPatients();
         JPanel listPatientPanel = new JPanel();
+        listPatientPanel.setOpaque(false);
+        listPatientPanel.setBorder(null);
         if(list.size() < 10){
             listPatientPanel.setLayout(new GridLayout(10, 1));
         }else{
@@ -94,20 +101,32 @@ public class MainController{
             
              for(int i = 0; i < list.size(); i++){
                 
-                JButton button = new JButton(list.get(i));                
+                JLabel button = new JLabel(list.get(i));
+                button.setOpaque(true);
+                button.setBackground(new Color(115,232,255));
+                button.setFont(new Font("Tahoma", Font.PLAIN, 14));
+                button.setForeground(new Color(60,60,60));
+                button.setIcon(new ImageIcon(getClass().getResource("/icons/space.png")));
                 button.setPreferredSize(new Dimension(180,40));
                 button.setMaximumSize(new Dimension(180,40));
                 button.setMinimumSize(new Dimension(180,40));
-                button.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        patientPanel = new PatientPanel(button.getText(), scrollPanel);
-                        
-                        scrollPanel.setViewportView(patientPanel);
-                        
-                       
+                button.addMouseListener(new java.awt.event.MouseAdapter() {
+                    public void mouseEntered(java.awt.event.MouseEvent evt) {
+                        button.setBackground(new Color(0,134,195));
                     }
-                });                
+                    public void mouseExited(java.awt.event.MouseEvent evt) {
+                        button.setBackground(new Color(115,232,255));
+                    }
+                    
+                    public void mouseReleased(java.awt.event.MouseEvent evt) {
+                        button.setBackground(new Color(115,232,255));
+                        patientPanel = new PatientPanel(button.getText(), scrollPanel);
+                        scrollPanel.setViewportView(patientPanel);
+                    }
+                });
+                
+                        
+                
                
                 listPatientPanel.add(button);
    
@@ -115,7 +134,6 @@ public class MainController{
            
         }
         view.getListScrollPanel().setViewportView(listPatientPanel);
-        view.getListScrollPanel().setVerticalScrollBar(new MyScrollBar(JScrollBar.VERTICAL));
             
     }
     

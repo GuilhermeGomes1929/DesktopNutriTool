@@ -25,7 +25,10 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         controller = new MainController(this);
         System.out.print(menuPanel.getWidth() +"width," + menuPanel.getHeight()+"height");
-        
+        scrollPanel.getViewport().setBackground(Color.WHITE);
+        scrollPanel.getViewport().setBorder(null);
+        scrollListPatient.getViewport().setOpaque(false);
+        scrollListPatient.getViewport().setBorder(null);
         
     }
     
@@ -55,18 +58,22 @@ public class MainJFrame extends javax.swing.JFrame {
         nutriName = new javax.swing.JLabel();
         searchPanel = new javax.swing.JPanel();
         searchTextField = new javax.swing.JTextField();
-        searchButton = new javax.swing.JButton();
-        addPatientButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         scrollListPatient = new javax.swing.JScrollPane();
+        addPatientBtn = new javax.swing.JLabel();
         contentPanel = new javax.swing.JPanel();
         scrollPanel = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        menuPanel.setBackground(new java.awt.Color(153, 255, 153));
+        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        nutriInfoPanel.setOpaque(false);
+        menuPanel.setBackground(new java.awt.Color(115, 232, 255));
 
+        nutriInfoPanel.setBackground(new java.awt.Color(0, 134, 195));
+
+        nutriName.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         nutriName.setText("Guilherme Gomes");
 
         javax.swing.GroupLayout nutriInfoPanelLayout = new javax.swing.GroupLayout(nutriInfoPanel);
@@ -74,7 +81,7 @@ public class MainJFrame extends javax.swing.JFrame {
         nutriInfoPanelLayout.setHorizontalGroup(
             nutriInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nutriInfoPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addComponent(nutriName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -86,41 +93,73 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        searchPanel.setBackground(new java.awt.Color(102, 255, 102));
-        searchPanel.setOpaque(false);
+        searchPanel.setBackground(new java.awt.Color(0, 134, 195));
 
-        searchTextField.setToolTipText("Search");
+        searchTextField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        searchTextField.setForeground(new java.awt.Color(204, 204, 204));
+        searchTextField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        searchTextField.setText("Pesquisar...");
+        searchTextField.setToolTipText("");
+        searchTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 3));
+        searchTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                searchTextFieldFocusLost(evt);
+            }
+        });
+        searchTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchTextFieldMouseClicked(evt);
+            }
+        });
 
-        searchButton.setText("jButton1");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/search.png"))); // NOI18N
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(searchTextField)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4))
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                .addComponent(searchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        addPatientButton.setText("Add patient");
-        addPatientButton.setMaximumSize(new java.awt.Dimension(194, 50));
-        addPatientButton.setMinimumSize(new java.awt.Dimension(194, 50));
-        addPatientButton.setPreferredSize(new java.awt.Dimension(194, 50));
-        addPatientButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPatientButtonActionPerformed(evt);
+        scrollListPatient.setBorder(null);
+        scrollListPatient.setForeground(new java.awt.Color(115, 232, 255));
+        scrollListPatient.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollListPatient.setOpaque(false);
+
+        addPatientBtn.setBackground(new java.awt.Color(0, 134, 195));
+        addPatientBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        addPatientBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        addPatientBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/plus-sign1.png"))); // NOI18N
+        addPatientBtn.setText("  Adicione um paciente      ");
+        addPatientBtn.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        addPatientBtn.setOpaque(true);
+        addPatientBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addPatientBtnMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addPatientBtnMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                addPatientBtnMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                addPatientBtnMouseReleased(evt);
             }
         });
 
@@ -130,28 +169,34 @@ public class MainJFrame extends javax.swing.JFrame {
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(nutriInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(searchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(addPatientButton, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
             .addComponent(scrollListPatient)
+            .addComponent(addPatientBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addComponent(nutriInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addPatientButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
+                .addComponent(addPatientBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(searchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollListPatient, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(scrollListPatient, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
         );
+
+        contentPanel.setOpaque(false);
+
+        scrollPanel.setBackground(new java.awt.Color(255, 255, 255));
+        scrollPanel.setBorder(null);
+        scrollPanel.setOpaque(false);
 
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
         contentPanel.setLayout(contentPanelLayout);
         contentPanelLayout.setHorizontalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contentPanelLayout.createSequentialGroup()
-                .addComponent(scrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 10, Short.MAX_VALUE))
+                .addComponent(scrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
+                .addGap(22, 22, 22))
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,9 +234,33 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addPatientButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPatientButtonActionPerformed
+    private void searchTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchTextFieldMouseClicked
+        searchTextField.setText("");
+        searchTextField.setForeground(Color.BLACK);
+    }//GEN-LAST:event_searchTextFieldMouseClicked
+
+    private void searchTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_searchTextFieldFocusLost
+        searchTextField.setForeground(new Color(204,204,204));
+        searchTextField.setText("Pesquisar...");
+    }//GEN-LAST:event_searchTextFieldFocusLost
+
+    private void addPatientBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPatientBtnMousePressed
+        addPatientBtn.setBackground(new Color(41,182,246));
+    }//GEN-LAST:event_addPatientBtnMousePressed
+
+    private void addPatientBtnMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPatientBtnMouseReleased
+        addPatientBtn.setBackground(new Color(0,134,195));
         controller.addRegisterPatientView();
-    }//GEN-LAST:event_addPatientButtonActionPerformed
+    }//GEN-LAST:event_addPatientBtnMouseReleased
+
+    private void addPatientBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPatientBtnMouseEntered
+        addPatientBtn.setBackground(new Color(41,182,246));
+    }//GEN-LAST:event_addPatientBtnMouseEntered
+
+    private void addPatientBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPatientBtnMouseExited
+        addPatientBtn.setBackground(new Color(0,134,195));
+        
+    }//GEN-LAST:event_addPatientBtnMouseExited
 
     /**
      * @param args the command line arguments
@@ -230,15 +299,15 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addPatientButton;
+    private javax.swing.JLabel addPatientBtn;
     private javax.swing.JPanel contentPanel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JPanel nutriInfoPanel;
     private javax.swing.JLabel nutriName;
     private javax.swing.JScrollPane scrollListPatient;
     private javax.swing.JScrollPane scrollPanel;
-    private javax.swing.JButton searchButton;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JTextField searchTextField;
     // End of variables declaration//GEN-END:variables

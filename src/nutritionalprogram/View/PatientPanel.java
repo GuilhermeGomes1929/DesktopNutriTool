@@ -45,24 +45,31 @@ public class PatientPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         patientBaseInfos = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         ageLabel = new javax.swing.JLabel();
         sexLabel = new javax.swing.JLabel();
         hightLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        ageLabel1 = new javax.swing.JLabel();
+        sexLabel1 = new javax.swing.JLabel();
+        hightLabel1 = new javax.swing.JLabel();
         backDateBtn = new javax.swing.JButton();
         dateLabel = new javax.swing.JLabel();
         nextDateBtn = new javax.swing.JButton();
         patientWeightInfos = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         currentWeightLabel = new javax.swing.JLabel();
         goalWeightLabel = new javax.swing.JLabel();
         bodyfatLabel = new javax.swing.JLabel();
         imcLabel = new javax.swing.JLabel();
         differenceWeightLabel = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        goalWeightLabel1 = new javax.swing.JLabel();
+        bodyfatLabel1 = new javax.swing.JLabel();
+        imcLabel1 = new javax.swing.JLabel();
+        differenceWeightLabel1 = new javax.swing.JLabel();
+        currentWeightLabel1 = new javax.swing.JLabel();
         patientMeasuresInfos = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         shouldersLabel = new javax.swing.JLabel();
         chestLabel = new javax.swing.JLabel();
         leftArmLabel = new javax.swing.JLabel();
@@ -73,203 +80,368 @@ public class PatientPanel extends javax.swing.JPanel {
         leftLegLabel = new javax.swing.JLabel();
         rightCalfLabel = new javax.swing.JLabel();
         leftCalfLabel = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        hipLabel1 = new javax.swing.JLabel();
+        rightLegLabel1 = new javax.swing.JLabel();
+        leftLegLabel1 = new javax.swing.JLabel();
+        rightCalfLabel1 = new javax.swing.JLabel();
+        leftCalfLabel1 = new javax.swing.JLabel();
+        shouldersLabel1 = new javax.swing.JLabel();
+        chestLabel1 = new javax.swing.JLabel();
+        leftArmLabel1 = new javax.swing.JLabel();
+        rightArmLabel1 = new javax.swing.JLabel();
+        waistLabel1 = new javax.swing.JLabel();
+        createMenuBtn = new javax.swing.JButton();
         deleteInfoBtn = new javax.swing.JButton();
         addInfoBtn = new javax.swing.JButton();
 
-        patientBaseInfos.setBackground(new java.awt.Color(102, 255, 102));
+        setOpaque(false);
+
+        patientBaseInfos.setBackground(new java.awt.Color(115, 232, 255));
         patientBaseInfos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel1.setText("Perfil do paciente");
-
+        nameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nameLabel.setText("Nome:");
 
+        ageLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ageLabel.setText("Idade:");
 
+        sexLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         sexLabel.setText("Sexo:");
 
+        hightLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         hightLabel.setText("Altura:");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("Nome:");
+
+        jLabel10.setBackground(new java.awt.Color(41, 182, 246));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel10.setText("     Informações do paciente");
+        jLabel10.setOpaque(true);
+
+        ageLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ageLabel1.setText("Idade:");
+
+        sexLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        sexLabel1.setText("Sexo:");
+
+        hightLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        hightLabel1.setText("Altura:");
 
         javax.swing.GroupLayout patientBaseInfosLayout = new javax.swing.GroupLayout(patientBaseInfos);
         patientBaseInfos.setLayout(patientBaseInfosLayout);
         patientBaseInfosLayout.setHorizontalGroup(
             patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientBaseInfosLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(ageLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ageLabel)
+                    .addComponent(nameLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(patientBaseInfosLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ageLabel)
-                            .addComponent(jLabel1)))
-                    .addGroup(patientBaseInfosLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel2)
+                        .addComponent(hightLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nameLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
-                .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sexLabel)
-                    .addComponent(hightLabel))
-                .addGap(227, 227, 227))
+                        .addComponent(hightLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(patientBaseInfosLayout.createSequentialGroup()
+                        .addComponent(sexLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sexLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         patientBaseInfosLayout.setVerticalGroup(
             patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientBaseInfosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(sexLabel)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(sexLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(patientBaseInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ageLabel)
-                    .addComponent(hightLabel))
+                    .addComponent(hightLabel)
+                    .addComponent(hightLabel1)
+                    .addComponent(ageLabel1))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        backDateBtn.setText("<-");
+        backDateBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        backDateBtn.setText("<");
 
+        dateLabel.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        dateLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dateLabel.setText("20/04/200");
 
-        nextDateBtn.setText("->");
+        nextDateBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        nextDateBtn.setText(">");
 
-        patientWeightInfos.setBackground(new java.awt.Color(102, 255, 102));
+        patientWeightInfos.setBackground(new java.awt.Color(115, 232, 255));
+        patientWeightInfos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel6.setText("Peso do paciente");
-
+        currentWeightLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         currentWeightLabel.setText("Atual:");
 
+        goalWeightLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         goalWeightLabel.setText("Meta:");
 
+        bodyfatLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bodyfatLabel.setText("Gordura corporal:");
 
+        imcLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         imcLabel.setText("IMC:");
 
+        differenceWeightLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         differenceWeightLabel.setText("Diferença:");
+
+        jLabel11.setBackground(new java.awt.Color(41, 182, 246));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel11.setText("     Composição corporal");
+        jLabel11.setOpaque(true);
+
+        goalWeightLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        goalWeightLabel1.setText("Meta:");
+
+        bodyfatLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bodyfatLabel1.setText("Gordura corporal:");
+
+        imcLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        imcLabel1.setText("IMC:");
+
+        differenceWeightLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        differenceWeightLabel1.setText("Diferença:");
+
+        currentWeightLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        currentWeightLabel1.setText("Atual:");
 
         javax.swing.GroupLayout patientWeightInfosLayout = new javax.swing.GroupLayout(patientWeightInfos);
         patientWeightInfos.setLayout(patientWeightInfosLayout);
         patientWeightInfosLayout.setHorizontalGroup(
             patientWeightInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(patientWeightInfosLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(patientWeightInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
                     .addGroup(patientWeightInfosLayout.createSequentialGroup()
-                        .addGroup(patientWeightInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(currentWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bodyfatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(63, 63, 63)
-                        .addGroup(patientWeightInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(goalWeightLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                            .addComponent(imcLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(currentWeightLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(currentWeightLabel))
+                    .addGroup(patientWeightInfosLayout.createSequentialGroup()
+                        .addComponent(bodyfatLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bodyfatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(79, 79, 79)
+                .addGroup(patientWeightInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(patientWeightInfosLayout.createSequentialGroup()
+                        .addComponent(imcLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(imcLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(patientWeightInfosLayout.createSequentialGroup()
+                        .addComponent(goalWeightLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(goalWeightLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(differenceWeightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(77, 77, 77))
+                        .addComponent(differenceWeightLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(differenceWeightLabel)
+                        .addGap(45, 45, 45))))
         );
         patientWeightInfosLayout.setVerticalGroup(
             patientWeightInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientWeightInfosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addGap(29, 29, 29)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(patientWeightInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(currentWeightLabel1)
                     .addComponent(currentWeightLabel)
                     .addComponent(goalWeightLabel)
-                    .addComponent(differenceWeightLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                    .addComponent(goalWeightLabel1)
+                    .addComponent(differenceWeightLabel)
+                    .addComponent(differenceWeightLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(patientWeightInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bodyfatLabel1)
                     .addComponent(bodyfatLabel)
-                    .addComponent(imcLabel))
-                .addGap(30, 30, 30))
+                    .addComponent(imcLabel)
+                    .addComponent(imcLabel1))
+                .addGap(34, 34, 34))
         );
 
-        patientMeasuresInfos.setBackground(new java.awt.Color(102, 255, 102));
+        patientMeasuresInfos.setBackground(new java.awt.Color(115, 232, 255));
+        patientMeasuresInfos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         patientMeasuresInfos.setPreferredSize(new java.awt.Dimension(0, 143));
 
-        jLabel9.setText("Medidas");
-
+        shouldersLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         shouldersLabel.setText("Ombros:");
 
+        chestLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         chestLabel.setText("Peitoral:");
 
+        leftArmLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         leftArmLabel.setText("Braço e.:");
 
+        rightArmLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rightArmLabel.setText("Braço d.:");
 
+        waistLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         waistLabel.setText("Cintura:");
 
+        hipLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         hipLabel.setText("Quadril:");
 
+        rightLegLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rightLegLabel.setText("Perna d.:");
 
+        leftLegLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         leftLegLabel.setText("Perna e.:");
 
+        rightCalfLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         rightCalfLabel.setText("Panturrilha d.:");
 
+        leftCalfLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         leftCalfLabel.setText("Panturrilha e.:");
+
+        jLabel12.setBackground(new java.awt.Color(41, 182, 246));
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel12.setText("     Medidas");
+        jLabel12.setOpaque(true);
+
+        hipLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        hipLabel1.setText("Quadril:");
+
+        rightLegLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        rightLegLabel1.setText("Perna d.:");
+
+        leftLegLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        leftLegLabel1.setText("Perna e.:");
+
+        rightCalfLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        rightCalfLabel1.setText("Panturrilha d.:");
+
+        leftCalfLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        leftCalfLabel1.setText("Panturrilha e.:");
+
+        shouldersLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        shouldersLabel1.setText("Ombros:");
+
+        chestLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        chestLabel1.setText("Peitoral:");
+
+        leftArmLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        leftArmLabel1.setText("Braço e.:");
+
+        rightArmLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        rightArmLabel1.setText("Braço d.:");
+
+        waistLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        waistLabel1.setText("Cintura:");
 
         javax.swing.GroupLayout patientMeasuresInfosLayout = new javax.swing.GroupLayout(patientMeasuresInfos);
         patientMeasuresInfos.setLayout(patientMeasuresInfosLayout);
         patientMeasuresInfosLayout.setHorizontalGroup(
             patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patientMeasuresInfosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel9))
-                    .addComponent(shouldersLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(chestLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(leftArmLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                    .addComponent(rightArmLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(waistLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
-                .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(hipLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rightLegLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(leftLegLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rightCalfLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                    .addComponent(leftCalfLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(140, 140, 140))
+                        .addComponent(chestLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chestLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addComponent(shouldersLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(shouldersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addComponent(leftArmLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(leftArmLabel))
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addComponent(waistLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(waistLabel))
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addComponent(rightArmLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rightArmLabel)))
+                .addGap(140, 140, 140)
+                .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addComponent(leftLegLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(leftLegLabel))
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addComponent(rightLegLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rightLegLabel))
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addComponent(hipLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(hipLabel))
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addComponent(leftCalfLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(leftCalfLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addComponent(rightCalfLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rightCalfLabel)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         patientMeasuresInfosLayout.setVerticalGroup(
             patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(patientMeasuresInfosLayout.createSequentialGroup()
+                        .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(shouldersLabel)
+                            .addComponent(shouldersLabel1)
+                            .addComponent(hipLabel)
+                            .addComponent(hipLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chestLabel)
+                            .addComponent(chestLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(leftArmLabel1)
+                            .addComponent(leftArmLabel)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, patientMeasuresInfosLayout.createSequentialGroup()
+                        .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rightLegLabel)
+                            .addComponent(rightLegLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(leftLegLabel)
+                            .addComponent(leftLegLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shouldersLabel)
-                    .addComponent(hipLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chestLabel)
-                    .addComponent(rightLegLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(leftArmLabel)
-                    .addComponent(leftLegLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rightCalfLabel)
+                    .addComponent(rightArmLabel1)
                     .addComponent(rightArmLabel)
-                    .addComponent(rightCalfLabel))
+                    .addComponent(rightCalfLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(patientMeasuresInfosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(leftCalfLabel)
-                    .addComponent(waistLabel))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(waistLabel)
+                    .addComponent(waistLabel1)
+                    .addComponent(leftCalfLabel1))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jButton3.setText("Criar novo cardápio");
-
-        jButton4.setText("Ver cardápios");
+        createMenuBtn.setText("Criar novo cardápio");
 
         deleteInfoBtn.setText("Deletar");
 
@@ -283,29 +455,23 @@ public class PatientPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(createMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backDateBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(nextDateBtn)
-                        .addGap(18, 18, 18)
-                        .addComponent(deleteInfoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(addInfoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(patientBaseInfos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(patientWeightInfos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(patientMeasuresInfos, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(patientBaseInfos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(backDateBtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(dateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(nextDateBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(deleteInfoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(addInfoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                            .addComponent(patientWeightInfos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(patientMeasuresInfos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -324,11 +490,9 @@ public class PatientPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(patientWeightInfos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(patientMeasuresInfos, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(patientMeasuresInfos, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(createMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -355,6 +519,10 @@ public class PatientPanel extends javax.swing.JPanel {
 
     public JButton getNextDateBtn() {
         return nextDateBtn;
+    }
+
+    public JButton getCreateMenuBtn() {
+        return createMenuBtn;
     }
 
     
@@ -443,36 +611,53 @@ public class PatientPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addInfoBtn;
     private javax.swing.JLabel ageLabel;
+    private javax.swing.JLabel ageLabel1;
     private javax.swing.JButton backDateBtn;
     private javax.swing.JLabel bodyfatLabel;
+    private javax.swing.JLabel bodyfatLabel1;
     private javax.swing.JLabel chestLabel;
+    private javax.swing.JLabel chestLabel1;
+    private javax.swing.JButton createMenuBtn;
     private javax.swing.JLabel currentWeightLabel;
+    private javax.swing.JLabel currentWeightLabel1;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JButton deleteInfoBtn;
     private javax.swing.JLabel differenceWeightLabel;
+    private javax.swing.JLabel differenceWeightLabel1;
     private javax.swing.JLabel goalWeightLabel;
+    private javax.swing.JLabel goalWeightLabel1;
     private javax.swing.JLabel hightLabel;
+    private javax.swing.JLabel hightLabel1;
     private javax.swing.JLabel hipLabel;
+    private javax.swing.JLabel hipLabel1;
     private javax.swing.JLabel imcLabel;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imcLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel leftArmLabel;
+    private javax.swing.JLabel leftArmLabel1;
     private javax.swing.JLabel leftCalfLabel;
+    private javax.swing.JLabel leftCalfLabel1;
     private javax.swing.JLabel leftLegLabel;
+    private javax.swing.JLabel leftLegLabel1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JButton nextDateBtn;
     private javax.swing.JPanel patientBaseInfos;
     private javax.swing.JPanel patientMeasuresInfos;
     private javax.swing.JPanel patientWeightInfos;
     private javax.swing.JLabel rightArmLabel;
+    private javax.swing.JLabel rightArmLabel1;
     private javax.swing.JLabel rightCalfLabel;
+    private javax.swing.JLabel rightCalfLabel1;
     private javax.swing.JLabel rightLegLabel;
+    private javax.swing.JLabel rightLegLabel1;
     private javax.swing.JLabel sexLabel;
+    private javax.swing.JLabel sexLabel1;
     private javax.swing.JLabel shouldersLabel;
+    private javax.swing.JLabel shouldersLabel1;
     private javax.swing.JLabel waistLabel;
+    private javax.swing.JLabel waistLabel1;
     // End of variables declaration//GEN-END:variables
 }
