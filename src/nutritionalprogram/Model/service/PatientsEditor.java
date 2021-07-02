@@ -28,7 +28,7 @@ public class PatientsEditor {
         ArrayList<String> list = new ArrayList<String>();
         
         if(arqs == null){
-            return null;
+            return list;
         }else{
             for(int i = 0; i < arqs.length; i++){
                 
